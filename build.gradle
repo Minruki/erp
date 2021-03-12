@@ -14,7 +14,7 @@ javadoc {
     options.encoding = 'UTF-8'
 }
 
-ㅀㅂ1`//8754*ㅁㅍㅍrepositories {
+repositories {
     jcenter()
 }
 
@@ -28,7 +28,7 @@ dependencies {
 
 jar {
     version = 1.0
-    mainClassName= 'erp.Erp'
+    mainClassName= 'erp.Main'
     baseName= 'Erp'
     appendix = 'bin'
     

@@ -32,7 +32,7 @@ select e.empno
      , d.deptNo
      , d.deptName
      , d.floor
-  from employee e join title t on e.title_no = t.tno
+  from employee e join title t on e.title = t.tno
        left join employee m on e.manager = m.empno 
        join department d on e.dept = d.deptNo ;
  
@@ -58,3 +58,6 @@ delete
 select empno, empname, title, manager, salary, dept
   from employee 
  where dept = (select deptNo from department where deptNo = 3);
+
+--
+select empno, empname, title, manager as manager_no, salary, dept as deptNo from employee where empno = 2106;
