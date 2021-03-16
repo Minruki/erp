@@ -6,9 +6,10 @@ import erp.dto.EmployeeDetail;
 public interface EmployeeDetailDao {
 	EmployeeDetail selectEmployeeDetailByNo(Employee employee);
 	
-	int insertEmployeeDetail(EmployeeDetail employee);
-	int updateEmployeeDetail(EmployeeDetail employee);
+	int insertEmployeeDetail(EmployeeDetail empDetail);
+	int updateEmployeeDetail(EmployeeDetail empDetail);
 	int deleteEmployeeDetail(Employee employee);
+
 	
 	
 

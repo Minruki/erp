@@ -12,7 +12,6 @@ import erp.dao.impl.EmployeeDaoImpl;
 import erp.dto.Department;
 import erp.dto.Employee;
 import erp.dto.Title;
-
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmployeeDaoTest {
 	private EmployeeDao dao = EmployeeDaoImpl.getInstance();
@@ -72,5 +71,26 @@ public class EmployeeDaoTest {
 		Assert.assertEquals(1, res);
 		dao.selectEmployeeByAll().stream().forEach(System.out::println);
 	}
+	
+	@Test
+	public void test05SelectEmployeeByTitle() {
+		System.out.printf("%s()%n", "test05SelectEmployeeByTitle");
+		
+		List<Employee> empList = dao.selectEmployeeByTitle(new Title(3));
+		Assert.assertNotNull(empList);
+		
+		empList.stream().forEach(System.out::println);
+	}
+	
+	@Test
+	public void test06SelectEmployeeByDept() {
+		System.out.printf("%s()%n", "test06SelectEmployeeByDept");
+		
+		List<Employee> empList = dao.selectEmployeeByDept(new Department(3));
+		Assert.assertNotNull(empList);
+		
+		empList.stream().forEach(System.out::println);
+	}
+
 
 }

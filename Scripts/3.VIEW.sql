@@ -12,5 +12,4 @@ select e.empno
      , d.floor
   from employee e join title t on e.title = t.tno
        left join employee m on e.manager = m.empno 
-       
        join department d on e.dept = d.deptNo ;

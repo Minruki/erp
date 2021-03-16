@@ -52,17 +52,17 @@ ALTER TABLE erp.employee
 		);
 
 -- emp_detail
-CREATE TABLE erp.세부정보 (
+CREATE TABLE erp.emp_detail (
 	empno    INT      NOT NULL COMMENT '사원번호', -- 사원번호
 	pic      LONGBLOB NULL     COMMENT '증명사진', -- 증명사진
 	gender   TINYINT  NULL     COMMENT '성별', -- 성별
-	hiredate DATE     NULL     COMMENT '입사일', -- 입사일
+	hiredate DATETIME     NULL     COMMENT '입사일', -- 입사일
 	pass     CHAR(41) NULL     COMMENT '비밀번호' -- 비밀번호
 )
 COMMENT 'emp_detail';
 
 -- emp_detail
-ALTER TABLE erp.세부정보
+ALTER TABLE erp.emp_detail
 	ADD CONSTRAINT PK_세부정보 -- emp_detail 기본키
 		PRIMARY KEY (
 			empno -- 사원번호
@@ -99,7 +99,7 @@ ALTER TABLE erp.employee
 		);
 
 -- emp_detail
-ALTER TABLE erp.세부정보
+ALTER TABLE erp.emp_detail
 	ADD CONSTRAINT FK_employee_TO_세부정보 -- 사원 -> emp_detail
 		FOREIGN KEY (
 			empno -- 사원번호
