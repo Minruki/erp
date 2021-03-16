@@ -20,7 +20,7 @@ public class TitleDaoTest {
 	@After
 	public void tearDown() throws Exception {
 		System.out.println();
-	}
+	} 
 
 	@Test
 	public void test04SelectTitleByAll() {

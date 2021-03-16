@@ -22,7 +22,7 @@ public class TitleDaoImpl implements TitleDao {
 	private TitleDaoImpl() {
 	}
 
-	@Override
+	@Override 
 	public List<Title> selectTitleByAll() {
 		String sql = "select tno, tname from title";
 		try (Connection con = JdbcConn.getConnection();

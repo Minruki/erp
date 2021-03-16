@@ -10,9 +10,8 @@ import javax.swing.border.TitledBorder;
 
 import erp.dto.Title;
 import erp.ui.exception.InvalidCheckException;
-
 @SuppressWarnings("serial")
-public class TitlePanel extends JPanel {
+public class TitlePanel extends AbstractContentPanel<Title>{
 	private JTextField tfNo;
 	private JTextField tfName;
 
@@ -20,7 +19,7 @@ public class TitlePanel extends JPanel {
 		initialize();
 	}
 	
-	private void initialize() {
+	public void initialize() {
 		setBorder(new TitledBorder(null, "직책정보", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		setLayout(new GridLayout(0, 2, 10, 0));
 		
@@ -41,27 +40,36 @@ public class TitlePanel extends JPanel {
 		add(tfName);
 	}
 
-	public void setTitle(Title title) {
-		tfNo.setText(String.valueOf(title.getNo()));
-		tfName.setText(title.getName());
+	@Override
+	public void clearTf() {
+		tfNo.setText("");
+		tfName.setText("");
+		
+		if (!tfNo.isEditable()) {
+			tfNo.setEditable(true);
+		}
 	}
-	
-	public Title getTitle() {
+
+	@Override
+	public void setItem(Title item) {
+		tfNo.setText(String.valueOf(item.getNo()));
+		tfName.setText(item.getName());
+		
+		tfNo.setEditable(false);		
+	}
+
+	@Override
+	public Title getItem() {
 		validCheck();
 		int tNo = Integer.parseInt(tfNo.getText().trim());
 		String tName = tfName.getText().trim();
 		return new Title(tNo, tName);
 	}
-	
-	private void validCheck() {
-		if(tfNo.getText().contentEquals("") || tfName.getText().equals("")) {
+ 
+	@Override
+	public void validCheck() {
+		if (tfNo.getText().contentEquals("") || tfName.getText().equals("")) {
 			throw new InvalidCheckException();
-		}
-		
-	}
-
-	public void clearTf() {
-		tfNo.setText("");
-		tfName.setText("");
+		}		
 	}
 }

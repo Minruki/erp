@@ -1,18 +1,24 @@
 package erp;
 
 import java.awt.EventQueue;
-import java.awt.GridLayout;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import erp_ui.list.DepartmentTablePanel;
-import erp_ui.list.TitleTablePanel;
+import erp.service.EmployeeService;
+import erp.ui.content.EmployeeDetailPanel;
+import erp_ui.list.EmployeeTablePanel;
 
+
+
+@SuppressWarnings("serial")
 public class TestFrame extends JFrame {
 
 	private JPanel contentPane;
+	private EmployeeTablePanel pList;
+	private EmployeeDetailPanel panel;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -30,21 +36,29 @@ public class TestFrame extends JFrame {
 	public TestFrame() {
 		initialize();
 	}
+	
 	private void initialize() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 621);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
 		
-		TitleTablePanel panel = new TitleTablePanel();
-		panel.loadData();
-		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
+		EmployeeService service = new EmployeeService();
+		
+		pList = new EmployeeTablePanel();
+		pList.setService(service);
+		pList.loadData();
+		contentPane.add(pList);
+		
+		panel = new EmployeeDetailPanel();
 		contentPane.add(panel);
-		
-		DepartmentTablePanel panel_1 = new DepartmentTablePanel();
-		panel_1.loadData();
-		contentPane.add(panel_1);
 	}
 
+
 }
+
+
+
+

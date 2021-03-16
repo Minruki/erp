@@ -25,7 +25,7 @@ public abstract class AbstractCustomTablePanel<T> extends JPanel {
 
 	public AbstractCustomTablePanel() {
 		initialize();
-
+ 
 		
 	}
 	public T getItem() {
