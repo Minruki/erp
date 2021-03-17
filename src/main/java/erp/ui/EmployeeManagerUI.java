@@ -77,4 +77,4 @@ public class EmployeeManagerUI extends AbstractManagerUI<Employee> {
 		JOptionPane.showMessageDialog(null, empl.getEmpName() + " 추가했습니다.");				
 	}
 
-}
+} 

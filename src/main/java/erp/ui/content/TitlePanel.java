@@ -70,6 +70,6 @@ public class TitlePanel extends AbstractContentPanel<Title>{
 	public void validCheck() {
 		if (tfNo.getText().contentEquals("") || tfName.getText().equals("")) {
 			throw new InvalidCheckException();
-		}		
+		}		 
 	}
 }

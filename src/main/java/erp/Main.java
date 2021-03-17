@@ -90,5 +90,5 @@ public class Main extends JFrame implements ActionListener {
 		EmployeeManagerUI frame = new EmployeeManagerUI();
 		frame.setTitle("사원 관리");
 		frame.setVisible(true);
-	}
+	} 
 }
